@@ -3,17 +3,20 @@ import './CardList.css'
 
 
 
-const CardList = ({data}) => {
+const CardList = ({data, onDelete}) => {
    
     
     const elements = data.map( (item, index) => {
         
-            const {...itemProps} = item;
+            const {id, ...itemProps} = item;
 
-            // console.log(index)
+            
             
         return (
-            <Cards_list_item key={index} {...itemProps} />
+            <Cards_list_item 
+                    key={index} 
+                    {...itemProps} 
+                    onDelete={() => onDelete(id)}/>
         )
     })
 
